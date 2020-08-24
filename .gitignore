@@ -1,0 +1,5 @@
+node_modules/
+.DS_Store
+.env
+0-random
+0-random-group

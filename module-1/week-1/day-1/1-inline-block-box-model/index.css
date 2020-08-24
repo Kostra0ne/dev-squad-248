@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box; 
+    /* by default, the box sizing prop's value us content-box */
+}
+
+/* 
+    rules for padding + margin
+    1 value => top / right /bottom / left
+    2 values => top and bottom / right and left
+    3 values => top / right + left / bottom
+    4  values = > top / right / bottom / left
+*/
+
+#block1 {
+  border: 1px solid;
+  /* margin-top: 10px; */
+  /* margin-right: 20px; */ 
+  /* margin-bottom: 20px; */
+  /* margin-left: 100px; */
+  margin: 10px 20px 20px 100px;
+  /* margin: 20px 40px; */
+  /* margin: 10px 30px 40px; */
+  /* padding: 20px;
+    padding: 10px 20px;
+    padding: 10px 20px 40px; */
+  padding: 10px 20px 10px 60px;
+}
+
+.block {
+  background: #101;
+  color: whitesmoke;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+#block3 {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid orange
+}
