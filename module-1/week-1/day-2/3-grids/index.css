@@ -15,14 +15,13 @@ a {
 
 body {
   font-family: Avenir;
-  min-height: 200vh;
   position: relative;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 80px 1fr 120px;
   min-height: 100vh;
-  grid-column-gap: 5px;
-  grid-row-gap: 12px;
+  grid-column-gap: 10px;
+  grid-row-gap: 7px;
 }
 
 #header_main {
