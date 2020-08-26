@@ -1,0 +1,40 @@
+1 / FOR YOUR CODE 
+
+in a shell :
+
+--- kick start ---
+
+git init
+git remote addd origin <ULR-OF-YOUR-REMOTE-REPO>
+
+
+--- initial workflow  ---
+
+git add .
+git commit -m "my super explicit commit message"
+git push origin master
+
+
+--- general workflow  ---
+git status
+git add file-name or folder-name
+git commit -m "my super explicit commit message"
+git push origin master
+
+----------------------------------------------------------
+2 / With the course's CODE
+
+clone it once with :
+$ git clone https://github.com/Kostra0ne/dev-squad-248.git
+when there is an available update:
+$ git pull origin master
+
+----------------------------------------------------------
+3 / With the labs CODE
+
+- first step you'll need to fork the repo
+- then  clone the repo on your machine
+- then code ...
+- do some frequent backups with git commit
+- submit the code with git push origin master
+- do a pull request to indicate that the job is done
