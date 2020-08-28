@@ -1,0 +1,11 @@
+function  expression, declaration, iife, fat arrow
+
+all loops (but forEach)
+
+arrays parsing
+
+matrix
+
+arays of objects
+
+unit testing
