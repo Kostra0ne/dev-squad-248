@@ -1,6 +1,11 @@
 console.log("hello, world");
 console.log("JS is AWESOME !!!");
 console.log(":)");
+console.log("Hey Raphaelle");
+console.log("Hey Raphaelle");
+console.log("Hey Raphaelle");
+console.log("Hey Raphaelle");
+console.log("Hey Raphaelle");
 
 // ----------------------------------------------------------------------------------------------
 // KICKSTART
@@ -116,3 +121,6 @@ AND FUNCTIONS ARE FIRST CLASS OBJECT :)
 // false, 0, undefined, NaN, null, ''
 
 // Boolean()
+
+
+
