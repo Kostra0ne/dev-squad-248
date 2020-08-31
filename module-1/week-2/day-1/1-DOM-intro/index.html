@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM intro</title>
+    <!-- <script src="./index.js"></script>
+    <script src="./foo.js"></script> -->
+    <script src="./dom-module.js" type="module"></script>
+    <style>
+      .is-highlighted {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">D.O.M : Document Object Model</h1>
+    <p id="intro" class="text-block">
+      DOM is an <span class="item">API</span>, designed to give you full control
+      on any HTML/XML document.<br />
+      It's an object-based system where any element on the page has a counter as
+      a JS object.<br />
+      Each <a href="">kind</a> of HTML Object has a predefined API (methods, poperties).<br />
+      ALWAYS THINK OF THE <a href="">DOCUMENT</a> HAS A TREE !!!
+    </p>
+    <hr />
+    <h2 id="secondary-title">Let's rock it !</h2>
+    <div>
+      <div id="goal">
+        <div>
+          <div>
+            <ul id="todo-list">
+              <li class="item">learn html</li>
+              <li class="item"><a href="">learn</a> css</li>
+              <li class="item">learn js</li>
+              <li class="item">learn DOM</li>
+              <li class="item">code some cool web apps</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form action="">
+      <input type="email" name="user-email">
+    </form>
+  </body>
+</html>

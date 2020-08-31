@@ -1,0 +1,12 @@
+.square {
+  height: 20px;
+  width: 100px;
+  background: dodgerblue;
+  transition: all 10s cubic-bezier(0, 2.05, 1, -0.73);
+  margin-bottom: 10px;
+}
+
+.square:hover {
+  width: 200px;
+  background: firebrick;
+}
