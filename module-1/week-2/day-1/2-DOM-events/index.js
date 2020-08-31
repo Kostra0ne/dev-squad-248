@@ -3,25 +3,27 @@ const input = document.getElementById("input-text-1");
 const content = document.getElementById("input-content");
 const clickCountTarget = document.getElementById("click-count");
 var clickCount = 0;
-
 // console.log(btn, input);
 
 // THOSE 2 FUNCTIONS ARE EVENT-HANDLERS (CALLBACKS)
 // THEY WILL PERFORM THE ACTION UPON A GIVEN EVENT
-function handleClick(event) {
+
+function handleClick(event) { // implicit argument
   clickCount += 1;
   console.log("clicked !!!", event, event.target, this, this === event.target);
   clickCountTarget.innerText = clickCount;
 }
 
-function handleInput(event) {
+function handleInput(event) { // provide for any event-handler
   console.log("inputed !!!", event, event.target, this, this === event.target);
-//   content.innerText += " foo ";
-  content.innerText += event.target.value;
+  //   content.innerText += " foo ";
+  content.innerText = event.target.value;
 }
 
 btn.addEventListener("click", handleClick); // pay attention here !!!
 input.addEventListener("input", handleInput); // no perenthesis on the function
+
+
 
 // BELOW : SAME STUFF, THE SHORT WAY :)
 
