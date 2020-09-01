@@ -1,0 +1,30 @@
+.fancy-select {
+    background: silver;
+    width: 60px;
+    position: relative;
+    border: 1px solid;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: .4rem;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.fancy-select .cursor {
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: red;
+    transform: translateX(0);
+    transition: all .2s linear 1s linear;
+}
+
+.fancy-select .cursor.is-active {
+    background: green;
+    transform: translateX(-35px);
+}

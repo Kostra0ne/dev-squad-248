@@ -1,0 +1,44 @@
+/* http://smacss.com/book/categorizing */
+
+@keyframes slidein {
+  0% {
+    transform: translateX(0%);
+    width: 200px;
+    height: 200px;
+    top: 0;
+  }
+
+  50% {
+    transform: translateX(50%);
+    width: 50px;
+    height: 50px;
+  }
+
+
+  100% {
+    transform: translateX(100%);
+    width: 150px;
+    height: 150px;
+    top: 50px;
+  }
+}
+
+#shape {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border: 2px solid;
+  background: darkgoldenrod;
+  position: relative;
+}
+/* 
+<single-transition-timing-function>
+<single-animation-iteration-count>
+<single-animation-direction>
+<single-animation-fill-mode>
+<single-animation-play-state>  */
+
+#shape.is-animated {
+  /* animation: 5s linear 0 slidein 2; */
+  animation: 3s linear slidein infinite alternate;
+}
