@@ -1,7 +1,9 @@
-// DOM ELEMENTS
+// STORE DOM ELEMENTS
 const carouselElement = document.getElementById("carousel");
-const btns = document.querySelectorAll(".btn");
 const img = carouselElement.querySelector(".img");
+// above : element.querySelector is an option too
+// https://developer.mozilla.org/fr/docs/Web/API/Element/querySelector
+const btns = carouselElement.querySelectorAll(".btn");
 
 // NEEDED INFOS
 const imgs = [
@@ -13,15 +15,20 @@ const imgs = [
 
 var count = 0;
 
+// EVENT HANDLER
+
 function handleClick(evt) {
-  const btn = evt.target;
-  if (btn.id == "btn-prev") {
+  const btn = evt.target; // evt.target => the clicked button
+
+  if (btn.id === "btn-prev") {
+    // decrements count or set it at the last img's index
     count = count === 0 ? imgs.length - 1 : count - 1;
   } else {
+    // increments count or set it at zero (reset)
     count += 1;
     if (count === imgs.length) count = 0;
   }
-  img.src = `./imgs/${imgs[count]}`;
+  img.src = `./imgs/${imgs[count]}`; // change the image's source
 }
 
 function handleClickShorter(evt) {
@@ -31,7 +38,11 @@ function handleClickShorter(evt) {
   img.src = `./imgs/${imgs[count]}`;
 }
 
+// EVENT LISTENER
+
 btns.forEach((btn) => (btn.onclick = handleClick));
+// loop + event-listener + event-handler
+
 
 /*  OTHER OPTIONS  */
 

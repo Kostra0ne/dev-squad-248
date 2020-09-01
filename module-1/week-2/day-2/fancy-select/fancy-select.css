@@ -21,7 +21,7 @@
     cursor: pointer;
     background: red;
     transform: translateX(0);
-    transition: all .2s linear 1s linear;
+    transition: all .3s linear;
 }
 
 .fancy-select .cursor.is-active {
