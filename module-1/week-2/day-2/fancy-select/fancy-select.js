@@ -4,7 +4,9 @@ class FancySelect {
     this.parentElement = parentElement;
     this.createMarkup();
     this.cursor = parentElement.querySelector(".cursor");
+    // below : classical call with regular function + bind
     // this.cursor.onclick = this.changeStatus.bind(this);
+    // below: taking advantage of fat-arrow's this lexical scope (without bind)
     this.cursor.onclick = this.changeStatus;
   }
 
@@ -27,10 +29,7 @@ class FancySelect {
   };
 }
 
-document
-  .querySelectorAll(".fancy-select")
-  .forEach((element) => {
-    const x = new FancySelect(element);
-    console.log(x.getCurrentStatus());
-  });
-
+document.querySelectorAll(".fancy-select").forEach((element) => {
+  const x = new FancySelect(element);
+  console.log(x.getCurrentStatus());
+});
