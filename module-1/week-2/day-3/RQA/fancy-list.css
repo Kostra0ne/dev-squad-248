@@ -1,0 +1,17 @@
+.fancy-list {
+  list-style: none;
+  display: flex;
+}
+
+.fancy-list .circle {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
