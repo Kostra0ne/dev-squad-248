@@ -14,7 +14,7 @@ function display(states) {
 }
 
 function handleHttpResponse(ajaxResponse) {
-  allStates = Object.values(ajaxResponse.data); // get the returned object's values as an array and store it in va states
+  allStates = Object.values(ajaxResponse.data); // get the returned object's values as an array and store it in var allStates
   display(allStates); // display the full list
   document.getElementById("filter_states").oninput = (evt) =>
     filterStates(evt.target.value.toLowerCase()); // listen to changes on the input and execute the filtering function
