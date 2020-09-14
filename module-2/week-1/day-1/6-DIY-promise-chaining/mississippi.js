@@ -1,14 +1,3 @@
-function oneMississippi() {
-  // "One Mississippi !";
-}
-
-function twoMississippi() {
-  // "Two Mississippis !!";
-}
-
-function threeMississippi() {
-  // "Three Mississippis !!!";
-}
 
 // launch the program with nodemon
 // modify the provided code to ...
@@ -20,6 +9,18 @@ function threeMississippi() {
 // "then ... Two Mississippis !!"
 // "then ... Three Mississippis !!!"
 
+
+function oneMississippi() {
+  // "One Mississippi !";
+}
+
+function twoMississippis() {
+  // "Two Mississippis !!";
+}
+
+function threeMississippis() {
+  // "Three Mississippis !!!";
+}
 
 oneMississippi().then((msg1) => {
   console.log(msg1);
