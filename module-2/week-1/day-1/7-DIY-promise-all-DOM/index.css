@@ -1,0 +1,25 @@
+body {
+  font-family: Avenir;
+}
+
+.btn {
+  border: 1px solid;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  height: 32px;
+}
+
+.btn.is-active {
+  background: coral;
+  color: whitesmoke;
+}
+
+.is-hidden {
+  display: none;
+}
+
+#success {
+  color: forestgreen;
+  font-weight: bolder;
+  font-size: 1.7rem;
+}
