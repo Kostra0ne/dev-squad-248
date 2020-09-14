@@ -23,8 +23,9 @@ function asyncAction3() {
 }
 
 // the async keyword allow you to run async code in a more "synchro,ous fashion"
-(async function() {
-  try { // let's try to perform the following actions (asynchronous)
+(async function () {
+  try {
+    // let's try to perform the following actions (asynchronous)
     // await must be called on a function returning a Promise ...
     const result = await asyncAction(); // this blocks until promise is resolved
     console.log(result); // then print the result
@@ -35,9 +36,4 @@ function asyncAction3() {
   } catch (err) {
     console.error(err); // rejected... then print the error
   }
-}());
-
-
-
-
-
+})();
