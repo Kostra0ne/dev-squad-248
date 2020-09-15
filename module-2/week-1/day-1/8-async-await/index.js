@@ -1,4 +1,4 @@
-function asyncAction() {
+function asyncAction1() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("async 1 action is done !!!");
@@ -22,12 +22,13 @@ function asyncAction3() {
   });
 }
 
-// the async keyword allow you to run async code in a more "synchro,ous fashion"
+// the async keyword allow you to run async code in a more "synchronous fashion"
 (async function () {
   try {
+    console.log("awaiting ...");
     // let's try to perform the following actions (asynchronous)
     // await must be called on a function returning a Promise ...
-    const result = await asyncAction(); // this blocks until promise is resolved
+    const result = await asyncAction1(); // this blocks until promise is resolved
     console.log(result); // then print the result
     const result2 = await asyncAction2(); // this blocks until second promise is resolved
     console.log(result2); // then print the result
