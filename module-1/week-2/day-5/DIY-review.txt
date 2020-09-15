@@ -1,0 +1,11 @@
+REVIEW DIY
+---------
+
+Code a simple little widget using :
+- HTML
+- CSS
+- JS
+- DOM events
+- 1 CSS transition or animation
+
+Keep it simple !

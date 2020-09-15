@@ -1,0 +1,34 @@
+<h1 class="title">{{title}}</h1>
+
+<p>
+  Hello {{user.name}} {{user.lastname}} !!!
+</p>
+
+{{#unless user.isAdmin}}
+  sorry you don't have admin rights on this app !!!
+{{/unless}}
+
+<hr>
+
+<p class="text">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolorum qui
+  soluta dolore a ipsa, aperiam eaque in voluptas assumenda consequuntur maiores
+  animi dolorem iure laudantium quaerat cumque molestiae nobis?
+</p>
+
+{{#if wannaCode}}
+<img src="/img/code-for-victory.png" />
+{{else}}
+<img src="/img/ralph-change.jpg" />
+{{/if}}
+
+<hr>
+
+<ul class="list">
+  {{#each todos}}
+  <li>{{@index}} - {{this}}</li>
+  {{!-- in that context, this represents each individual value in todos --}}
+  {{/each}}
+</ul>
+
+<hr>
