@@ -1,0 +1,7 @@
+<ul class="list">
+    {{!-- you iterate on wathever has been sent as argument of the partial --}}
+    {{#each this}}
+    <li>{{this}}</li>
+    {{!-- in that context, this represents each individual value in todos --}}
+    {{/each}}
+</ul>

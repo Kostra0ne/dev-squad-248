@@ -1,0 +1,15 @@
+<h1 class="title">About my first app</h1>
+<p>
+    My app is awesome, you wouldn't believe how powerfull and fresh it is
+</p>
+<hr>
+
+{{> myButton "login"}}
+{{> myButton "logout"}}
+{{> myButton "signup"}}
+
+{{!-- users (array) here is sent as arg to simpleList partial --}}
+{{> simpleList users }}
+<hr>
+{{!-- fruits (array) here is sent as arg to simpleList partial --}}
+{{> simpleList fruits }}
