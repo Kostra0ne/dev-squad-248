@@ -58,10 +58,7 @@ app.get("/about", (req, res) => {
   res.render("about", {
     fruits: ["mango", "pear", "orange", "banana"],
     users: ["jill", "will", "bill"],
-    js: ["about-dom-script"],
-    api: {
-      doStuff: () => console.log("hello")
-    }
+    js: ["about-dom-script"]
   });
 });
 
@@ -70,5 +67,5 @@ app.get("/contact", (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log("server is ready to rock");
+  console.log("server is ready to rock: http://localhost:8080");
 });

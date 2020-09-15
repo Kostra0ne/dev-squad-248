@@ -1,6 +1,11 @@
-
 console.log("hello ABOUT !");
 
 const elements = document.querySelectorAll("*");
 
-console.log(elements);
+function displayMessage(evt) {
+  alert("hellooo");
+}
+
+document
+  .querySelectorAll(".btn")
+  .forEach((btn) => (btn.onclick = displayMessage));
