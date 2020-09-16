@@ -3,3 +3,5 @@ node_modules/
 .env
 0-random
 0-random-group
+soluce.*
+*.soluce.*
