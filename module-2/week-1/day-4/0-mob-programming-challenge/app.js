@@ -15,17 +15,20 @@ app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
 
+// IMPORTING MODELS
+const UserModel = require("./models/User")
+
 // BODY PARSER
 // ....
 
 // HARDCODED DATA : We'll use the database right after
-const users = [
-  { name: "Jill", email: "jj@gmail.com", favoriteLangage: "JS" },
-  { name: "Jim", email: "jimmy@foo.bar", favoriteLangage: "Rust" },
-  { name: "Joe", email: "bim@bam.boum", favoriteLangage: "Go" },
-  { name: "Jay", email: "king@coder.fr", favoriteLangage: "PHP" },
-  { name: "Kim", email: "yo@wassup.com", favoriteLangage: "Haskell" },
-];
+// const users = [
+//   { name: "Jill", email: "jj@gmail.com", favoriteLangage: "JS" },
+//   { name: "Jim", email: "jimmy@foo.bar", favoriteLangage: "Rust" },
+//   { name: "Joe", email: "bim@bam.boum", favoriteLangage: "Go" },
+//   { name: "Jay", email: "king@coder.fr", favoriteLangage: "PHP" },
+//   { name: "Kim", email: "yo@wassup.com", favoriteLangage: "Haskell" },
+// ];
 
 const images = ["1.jpg", "2.jpg", "3.gif"];
 
@@ -36,7 +39,8 @@ app.get("/", (req, res) => {
   res.render("home", { images, css: ["mod.image-gallery"] });
 });
 
-app.get("/my-dev-squad", (req, res) => {
+app.get("/my-dev-squad", async (req, res) => {
+  const users = await UserModel.find(); // wait
   res.render("allUsers", { users, css: ["mod.list-grid"]  });
 });
 
@@ -47,7 +51,6 @@ app.get("/add-new-ironhacker", (req, res) => {
 app.get("/api/ironhackers", (req, res) => {
   res.json(users);
 });
-
 
 // KICKSTART
 
