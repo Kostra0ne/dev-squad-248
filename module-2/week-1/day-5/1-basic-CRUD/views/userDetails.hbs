@@ -1,1 +1,21 @@
 <h1 class="title">User details</h1>
+<hr>
+<p>
+    Hello {{user.name}}, welcome to your profile !<br>
+    Below, you can update your informations !
+</p>
+<hr>
+
+<form method="post" action="/ironhacker/{{user._id}}/update" class="form">
+    <h2 class="title">Update Profile</h2>
+    <label class="label" for="name">name</label>
+    <input class="input" id="name" type="text" name="name" value="{{user.name}}">
+
+    <label class="label" for="email">email</label>
+    <input class="input" id="email" type="email" name="email" value="{{user.email}}">
+
+    <label class="label" for="favLang">favorite langage</label>
+    <input class="input" id="favLang" type="text" name="favoriteLanguage" value="{{user.favoriteLanguage}}">
+
+    <button class="btn">update !</button>
+</form>
