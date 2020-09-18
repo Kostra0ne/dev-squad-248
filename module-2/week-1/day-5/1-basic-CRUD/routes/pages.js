@@ -2,7 +2,6 @@ const express = require("express");
 const router = new express.Router();
 const UserModel = require("./../models/User"); // go one level up and fetch User.js file in models folder
 
-
 // YAY : WE GOT A CRUD ROUTER :D Congratz !!!
 
 // homepage

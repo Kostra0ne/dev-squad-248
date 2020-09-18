@@ -23,6 +23,7 @@ app.use(express.json());
 
 // ROUTES
 app.use(require("./routes/pages"));
+app.use(require("./routes/cat"));
 app.use("api", require("./routes/api"));
 
 module.exports = app;

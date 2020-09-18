@@ -1,0 +1,32 @@
+{{#unless cats.length}}
+<p>Sorry, no recorded cat for now ...</p>
+{{/unless}}
+
+{{#each cats}}
+<div class="card cat">
+    <p>name : {{this.name}}</p>
+    <p>color: {{this.color}}</p>
+    <p>age :{{this.age}}</p>
+    <a href="/cat-details/{{this._id}}">see pic</a>
+    <a href="/cat/{{this._id}}/delete">remove this cat</a>
+</div>
+<hr>
+{{/each}}
+
+{{!-- 
+
+{{#if cat.length}}
+{{#each cats}}
+<div class="card cat">
+    <p>name : {{this.name}}</p>
+    <p>color: {{this.color}}</p>
+    <p>age :{{this.age}}</p>
+    <a href="/cat/{{this._id}}/delete">remove this cat</a>
+</div>
+<hr>
+{{else}}
+<p>Sorry, no recorded cat for now ...</p>
+{{/each}}
+{{/if}} 
+
+--}}
