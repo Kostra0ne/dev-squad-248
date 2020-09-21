@@ -18,6 +18,7 @@
 
 .table {
   border-collapse: collapse;
+  margin-top: 10px;
   border: 1px solid;
   width: 100%;
   text-align: center;
@@ -59,4 +60,8 @@
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.labels .link-create {
+  color: rgb(135, 207, 26);
 }

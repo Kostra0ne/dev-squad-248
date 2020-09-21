@@ -1,44 +1,53 @@
-<h1 class="title">Labels</h1>
+<div class="labels">
+
+    <h1 class="title">Labels
 
 
-<a href="/labels/create">Create a label</a>
+        <span>
+            &nbsp;<a class="link-create" href="/labels/create"><i class="fas fa-plus"></i></a>
+        </span>
+    </h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Logo</th>
-            <th>Name</th>
-            <th>Country</th>
-            <th>City</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each labels}}
-        <tr>
-            <td>
-                <img src="{{this.logo}}" alt="{{this.name}}" style="max-width: 48px">
-            </td>
-            <td>
-                {{this.name}}
-            </td>
-            <td>
-                {{this.country}}
-            </td>
-            <td>
-                {{this.city}}
-            </td>
-            <td>
-                <a href="/labels/{{this._id}}/edit">Edit</a>
-            </td>
-            <td>
-                <a href="/labels/{{this._id}}/delete">Delete</a>
-            </td>
-        </tr>
-        {{/each}}
 
-    </tbody>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each labels}}
+            <tr>
+                <td>
+                    <img src="{{this.logo}}" alt="{{this.name}}" style="max-width: 48px">
+                </td>
+                <td>
+                    {{this.name}}
+                </td>
+                <td>
+                    {{this.country}}
+                </td>
+                <td>
+                    {{this.city}}
+                </td>
+                <td>
+                    <a href="/labels/{{this._id}}/edit">
+                        <i class="far fa-edit"></i></a>
+                </td>
+                <td>
+                    <a href="/labels/{{this._id}}/delete">
+                        <i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {{/each}}
 
-</table>
+        </tbody>
+
+    </table>
+</div>
