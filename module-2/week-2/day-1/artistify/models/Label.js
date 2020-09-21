@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const labelSchema = new Schema({
-  name: { type: Number },
+  name: { type: String },
   country: String,
   logo: {
     type: String,

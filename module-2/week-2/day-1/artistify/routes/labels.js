@@ -39,7 +39,8 @@ router.get("/labels/create", (req, res, next) => {
 
 router.post(
   "/labels/create",
-  uploader.single("logo"),
+  uploader.single("logo"), // Middleware function that allows you to read and upload to cloudinary
+                            // The uploaded file can be found at req.file
   async (req, res, next) => {
     // DO something
 

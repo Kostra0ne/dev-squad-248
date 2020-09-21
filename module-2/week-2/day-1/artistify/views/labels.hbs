@@ -1,10 +1,10 @@
-<h1>Labels</h1>
+<h1 class="title">Labels</h1>
 
 
 <a href="/labels/create">Create a label</a>
 
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Logo</th>
@@ -19,7 +19,7 @@
         {{#each labels}}
         <tr>
             <td>
-                <img src="{{this.logo}}" alt="{{this.name}}">
+                <img src="{{this.logo}}" alt="{{this.name}}" style="max-width: 48px">
             </td>
             <td>
                 {{this.name}}

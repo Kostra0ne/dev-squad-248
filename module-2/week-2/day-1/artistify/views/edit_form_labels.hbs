@@ -1,15 +1,15 @@
-<form action="/labels/{{label._id}}/edit" method="POST">
+<form class="form" action="/labels/{{label._id}}/edit" method="POST">
     <h1>Edit a label</h1>
     <label for="name">Name</label>
-    <input type="text" id="name" name="name" value="{{label.name}}">
+    <input class="input" type="text" id="name" name="name" value="{{label.name}}">
 
     <label for="country">Country</label>
-    <input type="text" id="country" name="country" value="{{label.country}}">
+    <input class="input" type="text" id="country" name="country" value="{{label.country}}">
 
     <label for="city">City</label>
-    <input type="text" id="city" name="city" value="{{label.city}}">
+    <input class="input" type="text" id="city" name="city" value="{{label.city}}">
 
     <label for="logo">Logo</label>
-    <input type="text" id="logo" name="logo" value="{{label.logo}}">
-    <button>Edit</button>
+    <input class="input" type="text" id="logo" name="logo" value="{{label.logo}}">
+    <button class="btn">Edit</button>
 </form>
