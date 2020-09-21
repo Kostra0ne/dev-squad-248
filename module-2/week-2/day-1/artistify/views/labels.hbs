@@ -1,0 +1,44 @@
+<h1>Labels</h1>
+
+
+<a href="/labels/create">Create a label</a>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each labels}}
+        <tr>
+            <td>
+                <img src="{{this.logo}}" alt="{{this.name}}">
+            </td>
+            <td>
+                {{this.name}}
+            </td>
+            <td>
+                {{this.country}}
+            </td>
+            <td>
+                {{this.city}}
+            </td>
+            <td>
+                <a href="/labels/{{this._id}}/edit">Edit</a>
+            </td>
+            <td>
+                <a href="/labels/{{this._id}}/delete">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+
+    </tbody>
+
+</table>
