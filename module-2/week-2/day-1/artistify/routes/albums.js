@@ -5,7 +5,7 @@ const Artist = require("../models/Artists");
 const Label = require("../models/Label");
 
 // Get them all
-//   /albums/albums
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so "/albums" here
 router.get("/", async (req, res, next) => {
   try {
     // const albumDocuments = await Album.find().populate("label artist"); // same as below
@@ -19,12 +19,11 @@ router.get("/", async (req, res, next) => {
 });
 
 // Get one
-// prefixed with /albums so /albums/:id
-
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
 router.get("/page/:id", (req, res) => {});
 
 // Get the create form
-//prefixed with /albums in app.js so the route is  /albums/create
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
 router.get("/create", async (req, res, next) => {
   try {
     const artistDocuments = await Artist.find();
@@ -39,6 +38,7 @@ router.get("/create", async (req, res, next) => {
 });
 
 // Listen to the post of the create form
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/create here
 router.post("/create", async (req, res, next) => {
   //   console.log(req.body);
   try {
@@ -51,12 +51,15 @@ router.post("/create", async (req, res, next) => {
 });
 
 // Display the edit form with the albums fields filled
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
 router.get("/:id/edit", (req, res) => {});
 
 // Listen to the post of the edit form
+// prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
 router.post("/:id/edit", (req, res) => {});
 
 // Listen to the delete
+// // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/delete here
 router.get("/:id/delete", (req, res) => {});
 
 module.exports = router;
