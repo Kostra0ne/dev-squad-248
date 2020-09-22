@@ -10,7 +10,7 @@ router.get("/labels", (req, res, next) => {
   //   Label.find() --- This has the same effect with or without an empty object. It will get you all the documents from the Label collection.
   Label.find({}) // --- ^
     .then((dbResult) => {
-      res.render("labels.hbs", { labels: dbResult });
+      res.render("labels/labels.hbs", { labels: dbResult });
     })
     .catch((error) => {
       next(error); // Sends us to the error handler middleware in app.js if an error occurs
@@ -34,13 +34,13 @@ router.get("/labels/:id/delete", (req, res, next) => {
 });
 
 router.get("/labels/create", (req, res, next) => {
-  res.render("create_form_labels.hbs");
+  res.render("labels/create_form_labels.hbs");
 });
 
 router.post(
   "/labels/create",
   uploader.single("logo"), // Middleware function that allows you to read and upload to cloudinary
-                            // The uploaded file can be found at req.file
+  // The uploaded file can be found at req.file
   async (req, res, next) => {
     // DO something
 
@@ -63,7 +63,7 @@ router.get("/labels/:id/edit", async (req, res, next) => {
   try {
     const labelId = req.params.id;
     const dbResult = await Label.findById(labelId);
-    res.render("edit_form_labels.hbs", { label: dbResult });
+    res.render("labels/edit_form_labels.hbs", { label: dbResult });
   } catch (error) {
     next(error); // Sends us to the error handler middleware in app.js if an error occurs
   }
