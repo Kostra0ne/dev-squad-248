@@ -6,6 +6,7 @@ const albumSchema = new Schema({
   releaseDate: Date,
   label: { type: Schema.Types.ObjectId, ref: "Label" },
   artist: { type: Schema.Types.ObjectId, ref: "Artist" },
+  cover: String,
 });
 
 const Album = mongoose.model("Album", albumSchema);

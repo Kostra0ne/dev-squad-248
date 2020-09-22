@@ -1,0 +1,56 @@
+const express = require("express");
+const router = express.Router();
+const Artist = require("../models/Artists");
+
+// Get them all
+//   /artists/artists
+router.get("/", async (req, res) => {
+  try {
+    const dbResult = await Artist.find();
+    // const data = {artists: dbResult}
+    // res.render("artists/artists", data); // same as below
+    res.render("artists/artists", { artists: dbResult });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// Get one
+// prefixed with /artists so /artists/:id
+
+router.get("/page/:id", (req, res) => {
+  console.log(req.params.id);
+});
+
+// Get the create form
+//prefixed with /artists in app.js so the route is  /artists/create
+
+router.get("/create", (req, res) => {
+  res.render("artists/form_create.hbs");
+});
+
+// Listen to the post of the create form
+router.post("/create", async (req, res, next) => {
+  try {
+    const newArtist = req.body;
+    // if(newArtist.isBand === "true"){
+    //     newArtist.isBand = true;
+    // }else newArtist.isBand = false; // same as below
+    newArtist.isBand = newArtist.isBand === "true" ? true : false;
+    const createdArtist = await Artist.create(newArtist);
+    res.redirect("/artists");
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Display the edit form with the artists fields filled
+router.get("/:id/edit", (req, res) => {});
+
+// Listen to the post of the edit form
+router.post("/:id/edit", (req, res) => {});
+
+// Listen to the delete
+router.get("/:id/delete", (req, res) => {});
+
+module.exports = router;

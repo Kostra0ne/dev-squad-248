@@ -8,7 +8,6 @@ const logger = require("morgan");
 const hbs = require("hbs");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 
 const labelsRouter = require("./routes/labels"); // Labels router
 
@@ -27,7 +26,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use(labelsRouter); // Don't forget to use your router !
-app.use("/users", usersRouter);
+// const artistRouter = require("./routes/artists");
+// app.use("/", artistRouter); // same as below
+app.use("/artists", require("./routes/artists"));
+app.use("/albums", require("./routes/albums"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

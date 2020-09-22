@@ -1,0 +1,9 @@
+<h1>Albums</h1>
+
+{{#each albums}}
+<p>Title: {{this.title}}</p>
+<p>Release date:{{this.releaseDate}}</p>
+<p>Label: {{this.label.name}}</p>
+<p>Artist: {{this.artist.name}}</p>
+<hr>
+{{/each}}
