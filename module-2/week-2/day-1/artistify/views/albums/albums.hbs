@@ -1,9 +1,55 @@
-<h1>Albums</h1>
+<div class="labels">
 
-{{#each albums}}
-<p>Title: {{this.title}}</p>
-<p>Release date:{{this.releaseDate}}</p>
-<p>Label: {{this.label.name}}</p>
-<p>Artist: {{this.artist.name}}</p>
-<hr>
-{{/each}}
+    <h1 class="title">Albums
+
+
+        <span>
+            &nbsp;<a class="link-create" href="/albums/create"><i class="fas fa-plus"></i></a>
+        </span>
+    </h1>
+
+
+
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Release Date</th>
+                <th>Label</th>
+                <th>Artist</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each albums}}
+            <tr>
+
+                <td>
+                    {{this.title}}
+                </td>
+                <td>
+                    {{this.releaseDate}}
+                </td>
+                <td>
+                    {{this.label.name}}
+                </td>
+                <td>
+                    {{this.artist.name}}
+                </td>
+                <td>
+                    <a href="/albums/{{this._id}}/edit">
+                        <i class="far fa-edit"></i></a>
+                </td>
+                <td>
+                    <a href="/albums/{{this._id}}/delete">
+                        <i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+
+    </table>
+</div>

@@ -52,11 +52,35 @@ router.post("/create", async (req, res, next) => {
 
 // Display the edit form with the albums fields filled
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
-router.get("/:id/edit", (req, res) => {});
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const artistDocuments = await Artist.find();
+    const labelDocuments = await Label.find();
+    const albumDocument = await Album.findById(req.params.id);
+    console.log(albumDocument);
+    // console.log(labelDocuments);
+    res.render("albums/edit_form.hbs", {
+      artists: artistDocuments,
+      album: albumDocument,
+      labels: labelDocuments,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
 
 // Listen to the post of the edit form
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/edit here
-router.post("/:id/edit", (req, res) => {});
+router.post("/:id/edit", async (req, res, next) => {
+  try {
+    const albumId = req.params.id;
+    const newAlbumValues = req.body;
+    const updatedLabel = await Album.findByIdAndUpdate(albumId, newAlbumValues);
+    res.redirect("/albums");
+  } catch (error) {
+    next(error); // Sends us to the error handler middleware in app.js if an error occurs
+  }
+});
 
 // Listen to the delete
 // // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/delete here

@@ -1,5 +1,7 @@
 require("dotenv").config(); // Allows us to read the variables contained in the .env file.
 require("./config/dbConnection"); // Connection to the database
+require("./helpers/hbs-helpers");
+
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
