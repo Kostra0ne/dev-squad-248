@@ -20,6 +20,7 @@ router.get("/", async (req, res, next) => {
 
 // Get one
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
+
 router.get("/page/:id", async (req, res, next) => {
   try {
     const albumId = req.params.id;
@@ -34,6 +35,7 @@ router.get("/page/:id", async (req, res, next) => {
 
 // Get the create form
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
+
 router.get("/create", async (req, res, next) => {
   try {
     const artistDocuments = await Artist.find();

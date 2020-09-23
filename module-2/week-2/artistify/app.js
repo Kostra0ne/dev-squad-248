@@ -17,7 +17,7 @@ const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
+app.set("view engine", "hbs"); // Allows you to render your views without the .hbs extension
 hbs.registerPartials(path.join(__dirname, "views/partials"));
 
 app.use(logger("dev"));
@@ -31,6 +31,7 @@ app.use("/", indexRouter);
 app.use(labelsRouter); // Don't forget to use your router !
 // const artistRouter = require("./routes/artists");
 // app.use("/", artistRouter); // same as below
+app.use("/api/styles", require("./routes/api.styles"));
 app.use("/styles", require("./routes/styles"));
 app.use("/artists", require("./routes/artists"));
 app.use("/albums", require("./routes/albums"));

@@ -1,1 +1,38 @@
 <h1>You are on the styles page</h1>
+
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each styles }}
+        <tr id="{{this._id}}">
+            <td class="name">{{this.name}}</td>
+            <td class="color">{{this.color}}</td>
+            <td data-id="{{this._id}}" class="delete"><i class="far fa-trash-alt"></i></td>
+            <td data-id="{{this._id}}" class="edit"><i class="far fa-edit"></i></td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+</table>
+
+
+<form class="form">
+    <h2>Create a style</h2>
+    <label for="name">Name</label>
+    <input class="input" type="text" name="name" id="name">
+
+
+    <label for="color">Color</label>
+    <input class="input" type="color" id="color" name="color">
+
+    <button data-action="create" id="submit-style" class="btn">Create style</button>
+</form>
