@@ -1,0 +1,22 @@
+{
+  "artists": [
+    {
+      "id": 1,
+      "name": "wu-tang"
+    }
+  ],
+
+  "foo": [
+    {
+      "id": 1,
+      "name": "Bar"
+    }
+  ],
+
+  "albums": [
+    {
+      "name": "Lady GAGA EP",
+      "id": 2
+    }
+  ]
+}
