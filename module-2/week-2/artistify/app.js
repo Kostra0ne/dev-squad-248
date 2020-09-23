@@ -26,10 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/", require("./routes/api-test"));
 app.use("/", indexRouter);
 app.use(labelsRouter); // Don't forget to use your router !
 // const artistRouter = require("./routes/artists");
 // app.use("/", artistRouter); // same as below
+app.use("/styles", require("./routes/styles"));
 app.use("/artists", require("./routes/artists"));
 app.use("/albums", require("./routes/albums"));
 
