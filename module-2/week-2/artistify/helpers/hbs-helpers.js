@@ -12,3 +12,7 @@ hbs.registerHelper("isSameId", function (value1, value2, options) {
 hbs.registerHelper("formatDateInput", function (date) {
   return dayjs(date).format("YYYY-MM-DD");
 });
+
+hbs.registerHelper("formatDate", function (date) {
+  return dayjs(date).format("DD/MM/YYYY");
+});

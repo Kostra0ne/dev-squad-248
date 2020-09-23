@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
   background-color: rgb(44, 44, 44);
   color: white;
   display: flex;
@@ -6,6 +6,27 @@
   align-items: center;
   padding: 8px 10px;
   font-size: 0.85rem;
+} */
+
+.header {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: 1rem;
+}
+
+.header .nav .nav-link:not(:last-child) {
+  margin-right: 10px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav .nav-link:hover {
+  color: fuchsia;
 }
 
 .nav .title {
@@ -60,8 +81,4 @@
   outline: none;
   border: none;
   cursor: pointer;
-}
-
-.labels .link-create {
-  color: rgb(135, 207, 26);
 }

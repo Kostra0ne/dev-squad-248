@@ -20,7 +20,17 @@ router.get("/", async (req, res, next) => {
 
 // Get one
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
-router.get("/page/:id", (req, res) => {});
+router.get("/page/:id", async (req, res, next) => {
+  try {
+    const albumId = req.params.id;
+    const albumDocument = await (await Album.findById(albumId)).populated(
+      "label artist"
+    );
+    res.render("albums/one-album.hbs", { album: albumDocument });
+  } catch (error) {
+    next(error);
+  }
+});
 
 // Get the create form
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter))  /albums/create
@@ -84,6 +94,14 @@ router.post("/:id/edit", async (req, res, next) => {
 
 // Listen to the delete
 // // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/:id/delete here
-router.get("/:id/delete", (req, res) => {});
+router.get("/:id/delete", async (req, res, next) => {
+  try {
+    const albumId = req.params.id;
+    await Album.findByIdAndDelete(albumId);
+    res.redirect("/albums");
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

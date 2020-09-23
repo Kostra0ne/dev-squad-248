@@ -17,9 +17,15 @@ router.get("/", async (req, res) => {
 
 // Get one
 // prefixed with /artists so /artists/:id
-
-router.get("/page/:id", (req, res) => {
+router.get("/page/:id", async (req, res, next) => {
   console.log(req.params.id);
+  try {
+    const artistId = req.params.id;
+    const artistDocument = await Artist.findById(artistId);
+    res.render("artists/one-artist.hbs", { artist: artistDocument });
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Get the create form
