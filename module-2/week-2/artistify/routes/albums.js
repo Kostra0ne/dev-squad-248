@@ -18,6 +18,27 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/all/", async (req, res, next) => {
+  const titleFromQueryString = req.query.title;
+  console.log(req.query);
+  const query = {};
+
+  if (titleFromQueryString) {
+    const reg = new RegExp(titleFromQueryString);
+    query.title = { $regex: reg, $options: "i" };
+  }
+
+  try {
+    const albumDocuments = await Album.find(query)
+      .populate("label")
+      .populate("artist");
+
+    res.render("albums/allAlbums.hbs", { albums: albumDocuments });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Get one
 // prefixed with /albums in app.js (app.use("/albums", albumsRouter)) so /albums/page/:id here
 

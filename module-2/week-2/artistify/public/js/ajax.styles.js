@@ -1,3 +1,13 @@
+import ApiHandler from "./apiHandler.js";
+
+const stylesApi = new ApiHandler("/api/styles");
+
+// const pokemonApi = new ApiHandler("https://pokeapi.co/api/v2/pokemon");
+
+// pokemonApi.getAll().then((result) => {
+//   console.log(result.data);
+// });
+
 const submitBtn = document.getElementById("submit-style");
 
 setDeleteListeners(); // Sets  the event listener on the delete buttons
@@ -17,8 +27,8 @@ function setDeleteListeners() {
       const id = currentButton.getAttribute("data-id");
       const parentRow = currentButton.closest("tr"); // Get the closest tr so we can remove it once the delete is successful
 
-      axios
-        .delete(`/api/styles/${id}`) // Make the call to delete an element
+      stylesApi
+        .deleteOne(id) // Make the call to delete an element
         .then((apiResponse) => {
           parentRow.remove(); // remove the row that has just been clicked
         })
@@ -83,8 +93,8 @@ submitBtn.onclick = (event) => {
 
   if (action === "create") {
     //   Create
-    axios
-      .post("/api/styles/create", data)
+    stylesApi
+      .createOne(data)
       .then((apiResponse) => {
         //   const { name, color, _id } = apiResponse.data; // Destructuring
         const name = apiResponse.data.name;
@@ -100,8 +110,8 @@ submitBtn.onclick = (event) => {
     //   Update
     const id = submitBtn.getAttribute("data-id"); // Gets the id of the element we want to edit
 
-    axios
-      .patch(`/api/styles/${id}`, { name, color }) // patch by passing the id as a url parameter, and the values to update
+    stylesApi
+      .updateOne(id, { name, color }) // patch by passing the id as a url parameter, and the values to update
       .then((apiResponse) => {
         submitBtn.setAttribute("data-action", "create"); // Switch back the submit button action to create
         submitBtn.setAttribute("data-id", ""); // Clear the custom data attribute

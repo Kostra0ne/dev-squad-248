@@ -1,0 +1,11 @@
+<h2>All albums</h2>
+
+
+<form class="form" action="/albums/all" method="GET">
+    <input class="input" type="text" name="title" placeholder="search">
+    <button class="btn">Search</button>
+</form>
+
+{{#each albums}}
+<h4>{{this.title}}</h4>
+{{/each}}
