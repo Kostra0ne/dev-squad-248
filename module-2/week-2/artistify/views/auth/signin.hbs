@@ -1,0 +1,12 @@
+<h1>Signin page</h1>
+
+
+<form class="form" action="/auth/signin" method="POST">
+    <label for="email">Email</label>
+    <input class="input" type="email" id="email" name="email" value="foo@gmail.com">
+    <label for="password">Password</label>
+    <input class="input" type="password" id="password" name="password" value="user123">
+
+    <button class="btn">Signin</button>
+    <p class="error-message">{{error}}</p>
+</form>

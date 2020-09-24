@@ -1,0 +1,17 @@
+<h1>Signup page</h1>
+
+
+<form class="form" action="/auth/signup" method="POST">
+
+    <label for="email">Email</label>
+    <input class="input" type="text" id="email" name="email">
+
+    <label for="username">Username</label>
+    <input type="text" class="input" id="username" name="username">
+
+    <label for="password">Password</label>
+    <input class="input" type="password" id="password" name="password">
+
+    <button class="btn">Signup</button>
+    <p>{{error}}</p>
+</form>

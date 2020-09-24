@@ -8,9 +8,11 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const hbs = require("hbs");
-
+const mongoose = require("mongoose");
+const session = require("express-session"); // Etablishes a session (cookie) between client and server
+const MongoStore = require("connect-mongo")(session); // Create a mongostore with the session object
 const indexRouter = require("./routes/index");
-
+const flash = require("connect-flash");
 const labelsRouter = require("./routes/labels"); // Labels router
 
 const app = express();
@@ -26,6 +28,39 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(
+  session({
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {},
+  })
+);
+app.use(flash());
+
+app.use(function (req, res, next) {
+  res.locals.error_message = req.flash("error");
+  res.locals.success_message = req.flash("success");
+  next();
+});
+
+app.use(function (req, res, next) {
+  if (req.session.currentUser) {
+    res.locals.isLoggedIn = true;
+    res.locals.username = req.session.currentUser.username;
+  } else {
+    res.locals.isLoggedIn = false;
+    res.locals.username = null;
+  }
+  next();
+});
+
+app.use(function (req, res, next) {
+  // console.log(req.session);
+  next();
+});
+
 app.use("/", require("./routes/api-test"));
 app.use("/", indexRouter);
 app.use(labelsRouter); // Don't forget to use your router !
@@ -33,6 +68,7 @@ app.use(labelsRouter); // Don't forget to use your router !
 // app.use("/", artistRouter); // same as below
 app.use("/api/styles", require("./routes/api.styles"));
 app.use("/styles", require("./routes/styles"));
+app.use("/auth", require("./routes/auth"));
 app.use("/artists", require("./routes/artists"));
 app.use("/albums", require("./routes/albums"));
 
@@ -40,6 +76,8 @@ app.use("/albums", require("./routes/albums"));
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+app.locals.Title = "Foo";
 
 // error handler
 

@@ -14,7 +14,7 @@ class ApiHandler {
 
   getOne(id) {
     // return axios.get(this.baseURL + "/" + id);
-                    // //api/styles
+    // //api/styles
     return this.service.get("/" + id);
   }
 
