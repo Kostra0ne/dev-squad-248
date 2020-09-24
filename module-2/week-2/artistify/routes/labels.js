@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Label = require("../models/Label");
 const uploader = require("../config/cloudinary");
+const protectedAdminRoute = require("../middlewares/protectedAdminRoute");
 
-router.get("/labels", (req, res, next) => {
+router.get("/labels", protectedAdminRoute, (req, res, next) => {
   //   console.log(req.body, "this is body");
   //   console.log(req.params, "this is req params-----");
 
@@ -17,7 +18,7 @@ router.get("/labels", (req, res, next) => {
     });
 });
 
-router.get("/labels/:id/delete", (req, res, next) => {
+router.get("/labels/:id/delete", protectedAdminRoute, (req, res, next) => {
   // In your html you will usually have <a href="/labels/{{yourItem._id}}/delete">Delete </a>
   // Which will resolve into <a href="/labels/5cfR.../delete>Delete</a>"
   // When you click on the anchor tag, you will be able to know which item has been clicked
@@ -33,12 +34,13 @@ router.get("/labels/:id/delete", (req, res, next) => {
     });
 });
 
-router.get("/labels/create", (req, res, next) => {
+router.get("/labels/create", protectedAdminRoute, (req, res, next) => {
   res.render("labels/create_form_labels.hbs");
 });
 
 router.post(
   "/labels/create",
+  protectedAdminRoute,
   uploader.single("logo"), // Middleware function that allows you to read and upload to cloudinary
   // The uploaded file can be found at req.file
   async (req, res, next) => {
@@ -59,7 +61,7 @@ router.post(
   }
 );
 
-router.get("/labels/:id/edit", async (req, res, next) => {
+router.get("/labels/:id/edit", protectedAdminRoute, async (req, res, next) => {
   try {
     const labelId = req.params.id;
     const dbResult = await Label.findById(labelId);
@@ -69,7 +71,7 @@ router.get("/labels/:id/edit", async (req, res, next) => {
   }
 });
 
-router.post("/labels/:id/edit", async (req, res, next) => {
+router.post("/labels/:id/edit", protectedAdminRoute, async (req, res, next) => {
   try {
     const labelId = req.params.id;
     console.log(req.body);

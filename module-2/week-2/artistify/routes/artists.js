@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Artist = require("../models/Artists");
-
+const protectedAdminRoute = require("../middlewares/protectedAdminRoute");
 // Get them all
-//   /artists/artists
-router.get("/", async (req, res) => {
+//   /artists
+router.get("/", protectedAdminRoute, async (req, res) => {
   try {
     const dbResult = await Artist.find();
     // const data = {artists: dbResult}
@@ -31,12 +31,12 @@ router.get("/page/:id", async (req, res, next) => {
 // Get the create form
 //prefixed with /artists in app.js so the route is  /artists/create
 
-router.get("/create", (req, res) => {
+router.get("/create", protectedAdminRoute, (req, res) => {
   res.render("artists/form_create.hbs");
 });
 
 // Listen to the post of the create form
-router.post("/create", async (req, res, next) => {
+router.post("/create", protectedAdminRoute, async (req, res, next) => {
   try {
     const newArtist = req.body;
     // if(newArtist.isBand === "true"){
@@ -51,12 +51,12 @@ router.post("/create", async (req, res, next) => {
 });
 
 // Display the edit form with the artists fields filled
-router.get("/:id/edit", (req, res) => {});
+router.get("/:id/edit", protectedAdminRoute, (req, res) => {});
 
 // Listen to the post of the edit form
-router.post("/:id/edit", (req, res) => {});
+router.post("/:id/edit", protectedAdminRoute, (req, res) => {});
 
 // Listen to the delete
-router.get("/:id/delete", (req, res) => {});
+router.get("/:id/delete", protectedAdminRoute, (req, res) => {});
 
 module.exports = router;

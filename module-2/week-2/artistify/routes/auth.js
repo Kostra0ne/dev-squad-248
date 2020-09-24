@@ -33,9 +33,13 @@ router.post("/signin", async (req, res, next) => {
     } else {
       //
       // Authenticate the user...
+      const userDocument = { ...foundUser };
+      console.log(userDocument);
       const userObject = foundUser.toObject();
       delete userObject.password; // remove password before saving user in session
+      // console.log(req.session, "before defining current user");
       req.session.currentUser = userObject; // Stores the user in the session
+      // console.log(req.session, "AFTER defining current user");
       req.flash("success", "Successfully logged in...");
       res.redirect("/");
     }

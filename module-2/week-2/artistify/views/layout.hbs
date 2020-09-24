@@ -21,6 +21,10 @@
       </a>
       {{> navbar }}
     </div>
+
+    {{#if isAdmin}}
+    {{> navAdmin }}
+    {{/if}}
   </header>
   <main class="main">
     <h1>{{Title}}</h1>

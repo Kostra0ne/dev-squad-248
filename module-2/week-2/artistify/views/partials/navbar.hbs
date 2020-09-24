@@ -1,11 +1,9 @@
 <nav class="nav">
-    <a class="nav-link" href="/artists">Artists</a>
-    <a class="nav-link" href="/albums"> Albums</a>
-    <a class="nav-link" href="/labels">Labels</a>
-    <a class="nav-link" href="/styles"> Styles</a>
 
+    <a class="nav-link" href="/albums/all"> Albums</a>
+    <a class="nav-link" href="/artists/all"> Artists</a>
     {{#if isLoggedIn}}
-    <a class="nav-link" href="/dashboard">{{username}}</a>
+    <a class="nav-link" href="/profile">{{username}}</a>
     <a class="nav-link" href="/auth/logout"> Logout</a>
     {{else}}
     <a class="nav-link" href="/auth/signin"> Signin</a>

@@ -86,3 +86,12 @@
 .error {
   /* transiition:  */
 }
+ 
+.nav-admin {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-admin .nav-link:not(:last-child) {
+  margin-right: 10px;
+}

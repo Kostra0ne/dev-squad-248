@@ -36,7 +36,7 @@ app.use(
     saveUninitialized: true,
     cookie: {},
   })
-);
+); // Creates a session object, gives a cookie to client that the client sends back on every request
 app.use(flash());
 
 app.use(function (req, res, next) {
@@ -48,10 +48,12 @@ app.use(function (req, res, next) {
 app.use(function (req, res, next) {
   if (req.session.currentUser) {
     res.locals.isLoggedIn = true;
+    res.locals.isAdmin = req.session.currentUser.role === "admin";
     res.locals.username = req.session.currentUser.username;
   } else {
     res.locals.isLoggedIn = false;
     res.locals.username = null;
+    res.locals.isAdmin = false;
   }
   next();
 });
