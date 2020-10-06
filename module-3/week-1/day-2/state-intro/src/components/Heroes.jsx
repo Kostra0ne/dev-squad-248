@@ -36,7 +36,7 @@ class Heroes extends React.Component {
 
   render() {
     return (
-      <div className="Heroes">
+      <>
         {/* Not rendered in react */}
 
         {false}
@@ -48,29 +48,35 @@ class Heroes extends React.Component {
         {NaN}
         {0}
 
-        {this.state.heroes.map((hero, i) => (
-          <div
-            key={i}
-            style={{ backgroundColor: hero.isGood ? "dodgerblue" : "tomato" }}
-            className="card"
-          >
-            <h1>{hero.name}</h1>
-            {hero.isGood && <div>This is good boy</div>} {/* guard operator */}
-            {!hero.isGood && <div>This is bad boy</div>}
-            {hero.isGood ? (
-              <div>This is good boy</div>
-            ) : (
-              <div>This is bad boy</div>
-            )}
-            <img src={hero.imageUrl} alt={hero.name} />
-            <button onClick={(event) => this.deleteHero(i)}>
-              {/* In order to pass a value to an event handler
+        <div className="Heroes">
+          {this.state.heroes.map((hero, i) => (
+            <div
+              key={i}
+              style={{ backgroundColor: hero.isGood ? "dodgerblue" : "tomato" }}
+              className="card"
+            >
+              <h1>{hero.name}</h1>
+              {hero.isGood && <div>This is good boy</div>}{" "}
+              {/* guard operator */}
+              {!hero.isGood && <div>This is bad boy</div>}
+              {hero.isGood ? (
+                <div>This is good boy</div>
+              ) : (
+                <div>This is bad boy</div>
+              )}
+              <img src={hero.imageUrl} alt={hero.name} />
+              <button
+                className="btn-delete"
+                onClick={(event) => this.deleteHero(i)}
+              >
+                {/* In order to pass a value to an event handler
                                                                             you need to create an anonymous function */}
-              Delete
-            </button>
-          </div>
-        ))}
-      </div>
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+      </>
     );
   }
 }

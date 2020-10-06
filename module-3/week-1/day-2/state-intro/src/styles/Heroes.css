@@ -1,13 +1,34 @@
 .Heroes {
-  display: flex;
-  /* flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px 40px;
 }
 
-.Heroes img {
-  width: 120px;
+.Heroes .card img {
+  /* width: 120px; */
+  height: 120px;
+  width: auto;
+  object-fit: cover;
 }
 
 .Heroes .card {
   border: 1px solid black;
-  width: 30%;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  justify-content: flex-end;
+}
+
+.Heroes .card .btn-delete {
+  /* max-width: 320px; */
+  padding: 8px 10px;
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+  margin: 10px 5px;
 }
