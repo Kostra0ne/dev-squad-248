@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Deadpool",
+    "isGood": false,
+    "imageUrl": "https://www.denofgeek.com/wp-content/uploads/2016/01/deadpool-ryan-reynolds-petition.jpg?resize=620%2C368"
+  },
+  {
+    "name": "Ironman",
+    "isGood": true,
+    "imageUrl": "https://lc-imageresizer-live-s.legocdn.com/resize/ironman_slider_ironman-photo?width=1600&imageUrl=https%3A%2F%2Fwww.lego.com%2Fr%2Fwww%2Fr%2Fportals%2F-%2Fmedia%2Fcampaigns%2Fgrownup%2Fzebra%2Fironman%2F02-intro-section%2Fironman_slider_ironman-photo.jpg%3Fl.r%3D-816388879"
+  },
+  {
+    "name": "Black Panther",
+    "isGood": true,
+    "imageUrl": "https://static.nationalgeographic.fr/files/styles/image_3200/public/7788985193_black-panther-va-renouveler-marvel-au-cinema-en-2018.jpg?w=1900&h=1266"
+  }
+]

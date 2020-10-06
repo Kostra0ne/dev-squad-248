@@ -1,0 +1,13 @@
+.Heroes {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.Heroes img {
+  width: 120px;
+}
+
+.Heroes .card {
+  border: 1px solid black;
+  width: 30%;
+}
