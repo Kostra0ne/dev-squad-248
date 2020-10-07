@@ -1,26 +1,40 @@
 import React from "react";
-import friends from "../data/friends.json";
+// import friendsJSON from "../data/friends.json";
+import FriendRow from "./FriendRow";
+
 import "../styles/List.css";
 
-const List = () => {
-  return (
-    <div className="List">
-      {friends.map((friend, i) => (
-        <div key={i} className="friend">
-          <div>
-            <img
-              className="image"
-              src={friend.profileImage}
-              alt={friend.username}
-            />
-          </div>
-          <div>
-            <p>{friend.username}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+class List extends React.Component {
+  state = {
+    isDarkMode: false,
+  };
+
+  toggleDarkMode = () => {
+    this.setState({ isDarkMode: !this.state.isDarkMode });
+  };
+
+  render() {
+    return (
+      <div
+        style={{
+          backgroundColor: this.state.isDarkMode ? "black" : "ghostwhite",
+        }}
+        className="List"
+      >
+        <button onClick={this.toggleDarkMode}>Go dark mode</button>
+        {this.props.friends.map((friend, i) => (
+          <FriendRow
+            key={i}
+            username={friend.username}
+            profileImage={friend.profileImage}
+            age={friend.age}
+            index={i}
+            handleRemove={this.props.handleRemove}
+          />
+        ))}
+      </div>
+    );
+  }
+}
 
 export default List;
