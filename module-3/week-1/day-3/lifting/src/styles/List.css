@@ -1,0 +1,19 @@
+.List {
+}
+
+.List .friend {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.List .friend:nth-child(2n + 1) {
+  background-color: rgb(223, 221, 221);
+}
+
+.List .friend .image {
+  max-width: 64px;
+}

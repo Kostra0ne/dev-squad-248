@@ -1,0 +1,10 @@
+.App {
+  background-color: whitesmoke;
+  min-height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 20px 40px;
+}

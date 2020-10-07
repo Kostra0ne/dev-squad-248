@@ -1,0 +1,23 @@
+.NavMain {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  height: 70px;
+  background-color: rgba(26, 25, 25, 0.87);
+  color: rgba(9, 230, 145, 0.815);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.NavMain .nav {
+  display: flex;
+  width: 30%;
+  font-size: 1.25rem;
+  justify-content: space-around;
+}
