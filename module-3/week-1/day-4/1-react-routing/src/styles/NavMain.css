@@ -1,0 +1,19 @@
+.NavMain {
+  display: flex;
+  height: 70px;
+  background: black;
+  color: white;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.NavMain a.active {
+  color: dodgerblue;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
