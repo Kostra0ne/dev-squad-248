@@ -3,6 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Pokemons from "./pages/Pokemons";
 import OnePokemon from "./pages/OnePokemon";
 import NavMain from "./components/NavMain";
+import MyTimer from "./components/MyTimer";
+
 import "./App.css";
 
 function App() {

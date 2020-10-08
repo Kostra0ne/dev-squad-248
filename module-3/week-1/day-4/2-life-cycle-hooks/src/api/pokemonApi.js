@@ -13,6 +13,10 @@ export default {
   getOne(id) {
     return service.get("/" + id);
   },
+
+  createOne(data) {
+    return service.post("/laroute-du-post", data);
+  },
 };
 
 // import axios from "axios";
