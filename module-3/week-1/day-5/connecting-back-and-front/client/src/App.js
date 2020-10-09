@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Friends from "./pages/Friends";
 import CreateFriends from "./pages/CreateFriends";
 import OneFriend from "./pages/OneFriend";
+import EditFriends from "./pages/EditFriends";
+
 import "./App.css";
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/friends" component={Friends} />
         <Route exact path="/friends/create" component={CreateFriends} />
+        <Route exact path="/friends/:id/edit" component={EditFriends} />
         <Route exact path="/friends/:id" component={OneFriend} />
       </Switch>
     </div>

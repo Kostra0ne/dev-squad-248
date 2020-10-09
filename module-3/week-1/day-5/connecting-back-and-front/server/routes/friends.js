@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Friend = require("../models/Friend");
-
+const uploader = require("../config/cloudinary");
 // Prefixed with /friends
 router.get("/", (req, res, next) => {
   Friend.find()
@@ -26,8 +26,12 @@ router.get("/:id", (req, res, next) => {
 });
 
 // Route is prefixed with /friends
-router.post("/", (req, res, next) => {
+router.post("/", uploader.single("profileImage"), (req, res, next) => {
   const newFriend = req.body;
+
+  if (req.file) {
+    newFriend.profileImage = req.file.path;
+  }
 
   Friend.create(newFriend)
     .then((friendDocument) => {

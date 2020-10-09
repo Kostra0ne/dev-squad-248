@@ -23,7 +23,11 @@ class Friends extends React.Component {
         <h1>My friends</h1>
 
         {this.state.friends.map((friend) => (
-          <FriendCard name={friend.name} profileImage={friend.profileImage} />
+          <FriendCard
+            id={friend._id}
+            name={friend.name}
+            profileImage={friend.profileImage}
+          />
         ))}
       </div>
     );
