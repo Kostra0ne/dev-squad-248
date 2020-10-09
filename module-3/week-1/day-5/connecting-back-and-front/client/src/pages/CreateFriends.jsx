@@ -1,9 +1,13 @@
 import React from "react";
+import FormFriend from "../components/FormFriend";
 
-const CreateFriends = () => {
+
+const CreateFriends = (props) => {
   return (
     <div>
-      <h1>Create friend</h1>
+      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+
+      <FormFriend />
     </div>
   );
 };

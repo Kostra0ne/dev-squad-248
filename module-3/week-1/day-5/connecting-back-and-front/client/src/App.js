@@ -14,8 +14,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/friends" component={Friends} />
-        <Route exact path="/friends/:id" component={OneFriend} />
         <Route exact path="/friends/create" component={CreateFriends} />
+        <Route exact path="/friends/:id" component={OneFriend} />
       </Switch>
     </div>
   );

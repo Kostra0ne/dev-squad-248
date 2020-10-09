@@ -10,4 +10,8 @@ export default {
   getAll(endPoint) {
     return service.get(endPoint);
   },
+
+  create(endPoint, data) {
+    return service.post(endPoint, data);
+  },
 };
