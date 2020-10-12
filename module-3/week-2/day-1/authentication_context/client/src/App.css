@@ -1,0 +1,9 @@
+.App .page {
+  min-height: calc(100vh - var(--nav-height));
+  padding: 40px 80px;
+  background-color: ghostwhite;
+}
+
+.link {
+  color: dodgerblue;
+}
