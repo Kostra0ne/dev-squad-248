@@ -5,18 +5,20 @@ class AuthProvider extends Component {
   state = {
     user: null,
     error: null,
+    isLoading: true,
   };
 
   componentDidMount() {
     apiHandler
       .isLoggedIn()
       .then((data) => {
-        this.setState({ user: data });
+        this.setState({ user: data, isLoading: false });
       })
       .catch(() => {
         this.setState({
           user: null,
           error: "There was an error on the authetincation",
+          isLoading: false,
         });
       });
   }
@@ -38,6 +40,7 @@ class AuthProvider extends Component {
           user: this.state.user,
           setUser: this.setUser,
           logoutUser: this.logoutUser,
+          isLoading: this.state.isLoading,
         }}
       >
         {this.props.children}

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
-
+const uploadCloud = require("../config/cloudinary");
 const salt = 10; // The bigger the salt, the longer it will take to encrypt the password
 
 router.post("/signin", async (req, res, next) => {
@@ -29,22 +29,30 @@ router.post("/signin", async (req, res, next) => {
   }
 });
 
-router.post("/signup", async (req, res, next) => {
-  try {
-    const { email, password, username } = req.body;
-    const userInDB = await User.findOne({ email });
-    if (userInDB) {
-      return res.status(400).json({ message: "Email already taken" });
-    } else {
-      const hashedPassword = await bcrypt.hash(password, salt);
-      const newUser = { email, password: hashedPassword, username };
-      const createdUser = await User.create(newUser);
-      res.sendStatus(201);
+router.post(
+  "/signup",
+  uploadCloud.single("profileImage"),
+  async (req, res, next) => {
+    try {
+      const { email, password, username } = req.body;
+
+      const userInDB = await User.findOne({ email });
+      if (userInDB) {
+        return res.status(400).json({ message: "Email already taken" });
+      } else {
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const newUser = { email, password: hashedPassword, username };
+        if (req.file) {
+          newUser.profileImage = req.file.path;
+        }
+        const createdUser = await User.create(newUser);
+        res.sendStatus(201);
+      }
+    } catch (error) {
+      res.status(500).json(error);
     }
-  } catch (error) {
-    res.status(500).json(error);
   }
-});
+);
 
 router.get("/isLoggedIn", async (req, res, next) => {
   try {

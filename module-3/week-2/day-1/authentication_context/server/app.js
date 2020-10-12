@@ -34,6 +34,13 @@ app.use(
   })
 ); // Establishes a session between client & server (via cookie)
 
+if (process.env.NODE_ENV !== "production") {
+  app.use(function (req, res, next) {
+    req.session.currentUser = "5f840bb549eb27404d195951";
+    next();
+  });
+}
+
 app.use("/api/auth", require("./routes/auth"));
 
 module.exports = app;

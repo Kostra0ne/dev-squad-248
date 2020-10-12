@@ -29,22 +29,24 @@ class Signup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    apiHandler
-      .signup({
-        username: this.state.username,
-        password: this.state.password,
-        email: this.state.email,
-      })
-      .then((res) => {
-        this.props.history.push("/signin");
-      });
+
+    const fd = new FormData();
+
+    fd.append("username", this.state.username);
+    fd.append("password", this.state.password);
+    fd.append("email", this.state.email);
+    fd.append("profileImage", this.state.profileImage);
+    console.log(this.state.profileImage);
+    apiHandler.signup(fd).then((res) => {
+      this.props.history.push("/signin");
+    });
   };
 
   render() {
     return (
       <form className="Form" onSubmit={this.handleSubmit}>
         <h2 className="title">Signup</h2>
-
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
         {this.state.tmpImage && (
           <div className="avatar">
             <img src={this.state.tmpImage} alt="avatar" />

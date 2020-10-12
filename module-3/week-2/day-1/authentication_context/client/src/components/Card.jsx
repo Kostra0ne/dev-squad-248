@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { AuthContext } from "../Auth/AuthContext";
+import withAuth from "../Auth/withAuth";
 
 class Card extends Component {
   constructor(props) {
@@ -17,10 +18,12 @@ class Card extends Component {
     return (
       <div>
         <h2>Card</h2>
+        <hr />
+        <h2>Props in card</h2>
         <p>{this.context.username}</p>
       </div>
     );
   }
 }
 
-export default Card;
+export default withAuth(Card);
