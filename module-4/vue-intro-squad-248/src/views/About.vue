@@ -21,9 +21,58 @@
 
       <a href="https://fr.vuejs.org/v2/guide/list.html">loops</a>
     </p>
+
+    <hr />
+    <UserFormAdd v-on:add-new-user="handleAddUser" />
+    <hr />
+
+    <div v-if="selectedUser">
+      <span>the selected user is {{ selectedUser.name }}</span>
+      <button @click="selectedUser = null">unselect</button>
+    </div>
+
+    <UserCard
+      v-for="(user, i) in users"
+      :key="i"
+      :user="user"
+      v-on:user-select="handleUserSelect"
+      v-on:user-remove="handleUserRemove"
+    />
   </div>
 </template>
 
+<script>
+import UserCard from "@/components/UserCard.vue";
+import UserFormAdd from "@/components/UserFormAdd.vue";
+
+export default {
+  components: {
+    UserCard,
+    UserFormAdd
+  },
+  methods: {
+    handleAddUser(newUser) {
+      this.users.push(newUser);
+    },
+    handleUserSelect(user) {
+      this.selectedUser = user;
+    },
+    handleUserRemove(user) {
+      this.users = this.users.filter(u => u.name != user.name);
+    }
+  },
+  data() {
+    return {
+      selectedUser: null,
+      users: [
+        { name: "toto", age: 23, email: "foo@shop.com" },
+        { name: "titi", age: 44, email: "bar@dev.com" },
+        { name: "tutu", age: 55, email: "baz@code.com" }
+      ]
+    };
+  }
+};
+</script>
 <style scoped>
 .title {
   color: red;

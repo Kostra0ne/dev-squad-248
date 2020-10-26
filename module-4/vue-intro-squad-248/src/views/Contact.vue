@@ -17,6 +17,11 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+input {
+  height: 32px;
+}
+
 .title {
   color: dodgerblue;
 }
