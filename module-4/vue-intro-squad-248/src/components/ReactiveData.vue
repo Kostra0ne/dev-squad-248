@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="registerPlayer">
     <h2 class="title">2way Binding Rocks !!!</h2>
-    <input type="text" placeholder="player name here" v-model="playerName" />
+    <span>{{ playerName }}</span> : <input type="text" placeholder="player name here" v-model="playerName" /><br>
     <span>{{ score }}</span> : <input type="number" v-model.number="score" />
     <button>submit</button>
   </form>

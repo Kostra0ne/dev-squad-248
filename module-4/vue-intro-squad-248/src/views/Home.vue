@@ -1,17 +1,24 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <p>
+      usefull tut's : <br />
+      https://www.youtube.com/watch?v=nyJSd6V2DRI&list=PL55RiY5tL51p-YU-Uw90qQH419BM4Iz07
+      https://www.youtube.com/watch?v=2CSr2vBApSI&list=PL55RiY5tL51pT0DNJraU93FhMzhXxtDAo
+      
+    </p>
+    <hr />
+    <HelloWorld msg1="Hello World" msg2="FOO BAR BAZ !!!" />
+    <hr />
     <Users />
-    <hr>
+    <hr />
     <MyLooper />
-    <hr>
+    <hr />
     <ReactiveData />
-    <hr>
+    <hr />
     <Counter :limit="10" />
     <Counter :limit="5" />
     <Counter :limit="10" />
-    <hr>
-    <HelloWorld msg1="Hello World" msg2="FOO BAR BAZ !!!" />
   </div>
 </template>
 
