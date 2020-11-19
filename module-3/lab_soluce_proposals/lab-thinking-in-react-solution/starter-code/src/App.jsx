@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
 import FilterableProductTable from "./components/product-table/FilterableProductTable";
+import "./App.css";
 import data from "./data.json";
 
 function App() {

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const ProductRow = ({ productKey, name, price }) => {
+const ProductRow = ({ productKey, name, price, stocked }) => {
   // the same as: const {productKey, name, price} = props;
   return (
-    <tr key={productKey}>
+    <tr key={productKey} style={{ color: !stocked ? "red" : "" }}>
       <td>{name}</td>
       <td>{price}</td>
     </tr>
